@@ -22,9 +22,9 @@ contract JobMarketplace {
     uint256 public jobCounter;
     mapping(uint256 => Job) public jobs;
 
-    address public owner; // Owner of the contract
-    uint256 public commissionPercentage = 5; // Default commission
-    UserProfile public userProfileContract; // Reference to the UserProfile contract
+    address public owner;
+    uint256 public commissionPercentage = 5;
+    UserProfile public userProfileContract;
 
     event JobPosted(uint256 jobId, address employer, uint256 budget);
     event BidPlaced(uint256 jobId, address bidder, uint256 amount);
@@ -32,20 +32,33 @@ contract JobMarketplace {
     event BidWithdrawn(uint256 jobId, address bidder, uint256 amount);
     event CommissionUpdated(uint256 newCommission);
 
-    // Modifier to restrict access to the contract owner
     modifier onlyOwner() {
         require(msg.sender == owner, "Only the owner can perform this action.");
         _;
     }
 
-    // Constructor to initialize owner and reference the UserProfile contract
+    modifier onlyRegisteredUsers() {
+        UserProfile.Profile memory profile = userProfileContract.getProfile(msg.sender);
+        require(
+            bytes(profile.name).length > 0 && 
+            bytes(profile.phone).length > 0 && 
+            bytes(profile.email).length > 0, 
+            "User profile is incomplete. Name, phone, and email are required."
+        );
+        _;
+    }
+
+    modifier onlyEmployer(uint256 jobId) {
+        require(jobs[jobId].employer == msg.sender, "Only the employer can perform this action.");
+        _;
+    }
+
     constructor(address userProfileAddress) {
         owner = msg.sender;
         userProfileContract = UserProfile(userProfileAddress);
     }
 
-    // Postează un job
-    function postJob(string memory _description) external payable {
+    function postJob(string memory _description) external payable onlyRegisteredUsers {
         require(msg.value > 0, "Must send some ETH as budget.");
 
         jobCounter++;
@@ -56,14 +69,13 @@ contract JobMarketplace {
         newJob.budget = msg.value;
         newJob.isCompleted = false;
 
-        uint256 commission = calculateCustomCommission(msg.value); // Using the custom commission
-        payable(owner).transfer(commission); // Send commission to the owner
+        uint256 commission = calculateCustomCommission(msg.value);
+        payable(owner).transfer(commission);
 
         emit JobPosted(jobCounter, msg.sender, msg.value);
     }
 
-    // Plasează un bid
-    function placeBid(uint256 jobId, uint256 amount) external {
+    function placeBid(uint256 jobId, uint256 amount) external onlyRegisteredUsers {
         require(jobs[jobId].employer != address(0), "Job does not exist.");
         require(!jobs[jobId].isCompleted, "Job already completed.");
 
@@ -80,11 +92,8 @@ contract JobMarketplace {
         emit BidPlaced(jobId, msg.sender, amount);
     }
 
-    // Acceptă un bid
-    function acceptBid(uint256 jobId, uint256 bidIndex) external {
-        require(jobs[jobId].employer != address(0), "Job does not exist.");
+    function acceptBid(uint256 jobId, uint256 bidIndex) external onlyEmployer(jobId) {
         require(!jobs[jobId].isCompleted, "Job already completed.");
-        require(jobs[jobId].employer == msg.sender, "Only employer can accept bid.");
 
         Job storage job = jobs[jobId];
         require(bidIndex < job.bids.length, "Invalid bid index.");
@@ -96,10 +105,8 @@ contract JobMarketplace {
         chosenBid.accepted = true;
         job.isCompleted = true;
 
-        // Transferă suma către bidder
         chosenBid.bidder.transfer(chosenBid.amount);
 
-        // Returnează diferența (dacă a licitat mai puțin)
         uint256 leftover = job.budget - chosenBid.amount;
         if (leftover > 0) {
             job.employer.transfer(leftover);
@@ -108,7 +115,6 @@ contract JobMarketplace {
         emit BidAccepted(jobId, chosenBid.bidder, chosenBid.amount);
     }
 
-    // Retrage un bid
     function withdrawBid(uint256 jobId) external {
         Job storage job = jobs[jobId];
         require(job.employer != address(0), "Job does not exist.");
@@ -134,7 +140,6 @@ contract JobMarketplace {
         emit BidWithdrawn(jobId, msg.sender, bidAmount);
     }
 
-    // Obține toate joburile
     function getAllJobs() public view returns (Job[] memory) {
         Job[] memory allJobs = new Job[](jobCounter);
         for (uint256 i = 1; i <= jobCounter; i++) {
@@ -143,31 +148,18 @@ contract JobMarketplace {
         return allJobs;
     }
 
-    // Funcție de tip pure pentru calcularea comisionului standard (5%)
     function calculateCommission(uint256 amount) public pure returns (uint256) {
         return (amount * 5) / 100;
     }
 
-    // Funcție pentru calcularea comisionului bazat pe valoarea setată de owner
     function calculateCustomCommission(uint256 amount) public view returns (uint256) {
         return (amount * commissionPercentage) / 100;
     }
 
-    // Funcție pentru ca ownerul să actualizeze valoarea comisionului
     function setCommissionPercentage(uint256 newPercentage) external onlyOwner {
         require(newPercentage <= 100, "Commission cannot exceed 100%");
         commissionPercentage = newPercentage;
 
         emit CommissionUpdated(newPercentage);
-    }
-
-    // Funcție de tip private pentru verificări interne
-    function hasBidFromUser(Job storage job, address user) private view returns (bool) {
-        for (uint256 i = 0; i < job.bids.length; i++) {
-            if (job.bids[i].bidder == user) {
-                return true;
-            }
-        }
-        return false;
     }
 }

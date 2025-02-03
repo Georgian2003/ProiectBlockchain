@@ -9,7 +9,7 @@ async function main() {
   const userProfileAddress = await userProfile.getAddress();
   console.log("UserProfile deployed to:", userProfileAddress);
 
-  // 2. Deploy JobMarketplace contract with UserProfile address
+  // 2. Deploy JobMarketplace contract
   console.log("Deploying JobMarketplace contract...");
   const JobMarketplace = await hre.ethers.getContractFactory("JobMarketplace");
   const jobMarketplace = await JobMarketplace.deploy(userProfileAddress); // Pass UserProfile address
@@ -17,13 +17,11 @@ async function main() {
   const jobMarketplaceAddress = await jobMarketplace.getAddress();
   console.log("JobMarketplace deployed to:", jobMarketplaceAddress);
 
-  // Final summary
   console.log("Deployment complete.");
   console.log("UserProfile Address:", userProfileAddress);
   console.log("JobMarketplace Address:", jobMarketplaceAddress);
 }
 
-// Gestionarea erorilor
 main().catch((error) => {
   console.error("Error during deployment:", error);
   process.exitCode = 1;
