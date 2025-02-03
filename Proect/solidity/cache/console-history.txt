@@ -1,0 +1,49 @@
+console.log(result);
+const result = await contract.getMyJobsAndApplications();
+const contract = await ethers.getContractAt("JobMarketplace", "0x0165878A594ca255338adfa4d48449f69242Eb8F")
+console.log("Nonce:", nonce);
+const nonce = await provider.getTransactionCount(owner.address);
+const provider = ethers.provider;
+const [owner] = await ethers.getSigners();
+const provider = ethers.provider;
+const [owner] = await ethers.getSigners();
+console.log("Nonce:", nonce);
+const nonce = await owner.getTransactionCount();
+const [owner] = await ethers.getSigners();
+  value: ethers.parseEther("1"),
+const tx = await contract.connect(owner).postJob("Test direct", {
+...   value: ethers.parseEther("1"),
+const tx = await contract.connect(owner).postJob("Test direct", {
+...   value: ethers.parseEther("1"),
+const tx = await contract.connect(owner).postJob("Test direct", {
+await tx.wait();
+});
+  value: ethers.parseEther("1"),
+const tx = await contract.connect(owner).postJob("Test direct", {
+const contract = await ethers.getContractAt("JobMarketplace", "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707");
+const [owner] = await ethers.getSigners();
+console.log(jobs);
+const jobs = await JobMarketplace.getAllJobs();
+co
+const jobs = await JobMarketplace.getAllJobs();
+JobMarketplace.getAllJobs()
+await tx.wait();
+});
+  value: ethers.parseEther("1"),
+const tx = await JobMarketplace.connect(owner).postJob("Testare manuala", {
+console.log(contractAddress);
+});
+const tx = await JobMarketplace.connect(owner).pos  value: ethers.parseEther("1"),
+const JobMarketplace = await ethers.getContractAt("JobMarketplace", contractAddress);
+const contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
+await other.getAddress();
+await owner.getAddress();
+const [owner, other] = await ethers.getSigners();
+console.log("Conturi returnate:", accounts);
+const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+await userMgmt.checkIfRegistered("0xf39fd6e51aad88f6f4ce4ab8827279cfffb92266")
+const userMgmt = await ethers.getContractAt("UserManagement","0x5FbDB2315678afecb367f032d93F642f64180aa3");
+const userMgmt = await.ethers.getContractAt("UserManagement","0x5FbDB2315678afecb367f032d93F642f64180aa3");
+const userMgmt = await ethers.getContractAt("UserManagement", "0x5FbDB2...");
+await userMgmt.checkIfRegistered("0xf39fd6e51aad88f6f4ce6ab8827279cfffb9
+const userMgmt = await ethers.getContractAt("UserManagement", "0x5FbDB2...");
