@@ -1,0 +1,59 @@
+/* Resetare generală pentru a elimina marginile implicite */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Stilizare generală pentru aplicație */
+.app-container {
+  background-color: #7fffd4; /* Fundalul general */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container pentru secțiunea de bun venit */
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: calc(100vh - 60px); /* Ajustăm pentru bara de navigare */
+  padding: 20px;
+}
+
+/* Titlul de bun venit */
+.welcome-title {
+  font-size: 3.5rem; /* Text mai mare */
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #003366; /* Contrast potrivit cu fundalul */
+}
+
+/* Descrierea de sub titlu */
+.welcome-description {
+  font-size: 1.5rem; /* Dimensiune mai mare */
+  margin-bottom: 2.5rem;
+  color: #002244; /* Contrast potrivit și mai subtil */
+}
+
+/* Butonul pentru conectarea portofelului */
+.connect-button {
+  font-size: 1.2rem; /* Dimensiune mai mare */
+  padding: 15px 30px;
+  background-color: #005f99; /* Albastru mai profund pentru un contrast puternic */
+  color: #ffffff; /* Text alb pentru lizibilitate */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.connect-button:hover {
+  background-color: #003f66; /* Efect de hover mai profund */
+  transform: scale(1.05); /* Mic efect de mărire */
+}

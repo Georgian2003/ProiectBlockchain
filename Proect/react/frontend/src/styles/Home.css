@@ -1,0 +1,157 @@
+/* General container styling */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #7fffd4; /* Same background as the rest of the app */
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box; /* Asigurăm calculul corect al dimensiunilor */
+  overflow-x: hidden; /* Prevenim scroll-ul orizontal */
+}
+
+/* Centered title styling */
+.home-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #004d4d;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+}
+
+/* Centered balance styling */
+.home-balance {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #004d4d;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+}
+
+.home-balance .balance-amount {
+  font-size: 1.5rem;
+  color: #006666;
+  margin-top: 0.5rem;
+}
+
+/* Account display styling */
+.home-account {
+  font-size: 1.2rem;
+  color: #004d4d;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  background-color: #e5f9f4;
+  padding: 5px 15px;
+  border-radius: 10px;
+}
+
+/* Profile section styling */
+.profile-container {
+  width: 80%;
+  max-width: 600px;
+  background-color: #20b2aa; /* Dark green background */
+  color: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  border-left: 6px solid #7fffd4; /* Accent color for profile container */
+  box-sizing: border-box;
+}
+
+.profile-container h2 {
+  font-size: 2.2rem;
+  color: #7fffd4;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.profile-container p {
+  font-size: 1.1rem;
+  color: #ffffe0;
+  margin: 5px 0;
+  line-height: 1.6;
+}
+
+.profile-container strong {
+  color: #7fffd4;
+  font-weight: bold;
+}
+
+/* Update Profile button */
+.update-profile-button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  background-color: #007b83;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+.update-profile-button:hover {
+  background-color: #005f63;
+  transform: scale(1.05);
+}
+
+/* Form container styling */
+.form-container {
+  width: 80%;
+  max-width: 600px;
+  background-color: #e5f9f4;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Spațiu între elementele din formular */
+}
+
+.form-container h2 {
+  font-size: 1.8rem;
+  color: #004d4d;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-container label {
+  font-size: 1rem;
+  color: #007b83;
+}
+
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Save Changes button styling */
+/* Save Changes button styling */
+.form-container button[type="submit"] {
+  display: block;
+  margin: 20px auto 0; /* Centrat: auto pe stânga și dreapta */
+  font-size: 1rem;
+  padding: 10px 20px;
+  background-color: #007b83;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-container button[type="submit"]:hover {
+  background-color: #005f63;
+  transform: scale(1.05);
+}

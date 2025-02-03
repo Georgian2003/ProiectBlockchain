@@ -1,0 +1,83 @@
+/* General container styling */
+.job-market-container {
+  padding: 20px;
+  background-color: #7fffd4; /* Light aqua background from app.css */
+  min-height: 100vh;
+  font-family: "Arial", sans-serif;
+}
+
+/* Title styling */
+.job-market-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #004d4d; /* Dark teal */
+  margin-bottom: 20px;
+}
+
+/* Individual job card styling */
+.job-card {
+  background-color: #e0f7fa; /* Light teal */
+  color: #004d4d; /* Dark teal text */
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 6px solid #004d4d; /* Accent color */
+}
+
+/* Job details */
+.job-card p {
+  margin: 5px 0;
+  font-size: 1.1rem;
+}
+
+/* Bids section */
+.job-card h4 {
+  margin-top: 15px;
+  color: #003333; /* Darker teal */
+  font-size: 1.2rem;
+}
+
+/* Buttons styling */
+.job-card button {
+  font-size: 1rem;
+  padding: 10px 15px;
+  background-color: #007b83; /* Teal button */
+  color: #ffffff; /* White text */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-right: 10px;
+}
+
+.job-card button:hover {
+  background-color: #005f63; /* Darker teal on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Input field styling */
+.job-card input[type="number"] {
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 150px;
+  margin-right: 10px;
+}
+
+/* Error and loading messages */
+.error-message {
+  color: red;
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.loading-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #004d4d; /* Dark teal */
+  margin-bottom: 20px;
+}

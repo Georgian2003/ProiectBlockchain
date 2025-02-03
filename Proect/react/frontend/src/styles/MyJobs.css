@@ -1,0 +1,166 @@
+/* General container styling */
+.my-jobs-container {
+  padding: 20px;
+  background-color: #7fffd4;
+  min-height: 100vh;
+}
+
+/* Title styling */
+.my-jobs-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Create job button styling */
+.create-job-button {
+  display: block;
+  margin: 0 auto 20px auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.create-job-button:hover {
+  background-color: #0056b3;
+}
+
+/* Job card styling */
+.job-card {
+  background-color: #f0f8ff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.job-card p {
+  margin: 5px 0;
+  color: #333;
+}
+
+/* Bid container */
+.bid-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+/* Bid text */
+.bid-info {
+  flex: 1;
+  font-size: 1rem;
+  color: #333;
+  margin-right: 10px;
+}
+
+/* Actions container */
+.bid-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Accept Bid button styling */
+.accept-bid-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.accept-bid-button:hover {
+  background-color: #218838;
+}
+
+/* View Profile button styling */
+.view-profile-button {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.view-profile-button:hover {
+  background-color: #0056b3;
+}
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  width: 90%;
+  max-width: 400px;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Submit button for creating a job */
+.create-job-submit {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+}
+
+.create-job-submit:hover {
+  background-color: #0056b3;
+}
+
+/* Close modal button */
+.close-modal {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+}
+
+.close-modal:hover {
+  background-color: darkred;
+}
+
+/* Error message styling */
+.error-message {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}

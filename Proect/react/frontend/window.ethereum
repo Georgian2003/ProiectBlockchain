@@ -1,0 +1,8 @@
+if (typeof window.ethereum === "undefined") {
+  console.error("MetaMask is not installed!");
+  return;
+}
+
+// Accesăm MetaMask
+const ethereum = window.ethereum;
+ethereum?.request({ method: "eth_requestAccounts" });
